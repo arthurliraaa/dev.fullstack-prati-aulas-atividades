@@ -1,62 +1,34 @@
-const readline = require('readline');
+const promt =  requerie('prompt-sync')();
 
-// Interface para ler dados do terminal
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+let valor1 = parseFloat(promt('Digite o primeiro valor: '));	 
+let valor2 = parseFloat(promt('Digite o segundo valor: '));
+let operacao = promt('Digite a operação desejada (+, -, *, /): ');
+let resultado = 0;
 
-// Função para fazer perguntas sequenciais
-function perguntar(pergunta) {
-  return new Promise((resolve) => {
-    rl.question(pergunta, (resposta) => {
-      resolve(resposta);
-    });
-  });
+if (operacao === '+') {
+    resultado = valor1 + valor2;
 }
-
-async function calculadora() {
-  try {
-    const num1 = parseFloat(await perguntar("Digite o primeiro número: "));
-    const operacao = await perguntar("Digite a operação (+, -, *, /): ");
-    const num2 = parseFloat(await perguntar("Digite o segundo número: "));
-
-    let resultado;
-
-    if (isNaN(num1) || isNaN(num2)) {
-      console.log("Erro: um dos valores não é um número válido.");
-    } else {
-      switch (operacao) {
-        case "+":
-          resultado = num1 + num2;
-          break;
-        case "-":
-          resultado = num1 - num2;
-          break;
-        case "*":
-          resultado = num1 * num2;
-          break;
-        case "/":
-          if (num2 === 0) {
-            console.log("Erro: divisão por zero.");
-            rl.close();
-            return;
-          }
-          resultado = num1 / num2;
-          break;
-        default:
-          console.log("Operação inválida.");
-          rl.close();
-          return;
+else if (operacao === '-') {
+    resultado = valor1 - valor2;
+} else if (operacao === '*') {
+    resultado = valor1 * valor2;
+} else if (operacao === '/') {
+    resultado = valor1 / valor2;{
+      if (valor2 !== 0) {
+        console.log('Erro: Divisão por zero não é permitida!');
+        resultado = 'Indefinido';
       }
-
-      console.log(`Resultado: ${resultado}`);
     }
-  } catch (err) {
-    console.log("Ocorreu um erro:", err);
-  } finally {
-    rl.close();
-  }
+} else {
+    console.log('Operação inválida!');
+    resultado = 'Indefinido';
 }
 
-calculadora();
+if (resultado !== 'Indefinido') {
+    console.log('O resultado é: ' + resultado);
+}
+
+console.log('O resultado é: ' + resultado);
+
+console.log('Obrigado por usar a calculadora!');
+console.log('Até a próxima!');
