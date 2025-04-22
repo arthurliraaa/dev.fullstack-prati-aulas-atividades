@@ -1,4 +1,4 @@
-const promt =  requerie('prompt-sync')();
+const promt = require('prompt-sync')();
 
 let valor1 = parseFloat(promt('Digite o primeiro valor: '));	 
 let valor2 = parseFloat(promt('Digite o segundo valor: '));
