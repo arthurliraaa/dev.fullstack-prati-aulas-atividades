@@ -1,1 +1,2 @@
-const promt = requerie('prompt-sync')();
+
+    j = i * (j + 1)
