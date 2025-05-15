@@ -78,13 +78,86 @@
 
 // Arrays muldidimensionais
 
-let matriz = []
+// let matriz = []
 
-for(let i = 0; i < 3; i++){
-    matriz[i] = []
-    for(let j = 0; j < 3; j++){
-        matriz[i][j] = 10
+// for(let i = 0; i < 3; i++){
+//     matriz[i] = []
+//     for(let j = 0; j < 3; j++){
+//         matriz[i][j] = 10
+//     }
+// }
+
+// console.table(matriz)
+
+// let listaCoisas = Array()
+
+// listaCoisas['hardware'] = Array()
+// listaCoisas['hardware'][0] = 'Placa de vídeo'
+// listaCoisas['hardware'][1] = 'Notebook'
+
+// listaCoisas['Filmes'] = ['Senhor dos Anéis']
+// listaCoisas['Filmes'][1] = 'Harry Potter'
+
+// console.table(listaCoisas)
+
+
+// function ordenaArray(array){
+//     return array.sort((a, b) => a - b)
+// }
+
+// let resultado = ordenaArray([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+// console.log(resultado)
+
+// function showFunction(sucessCallback, errorCallback){
+//     if(false){
+//         sucessCallback('Deu certo')
+//     }else{
+//         errorCallback('Deu errado')
+//     }
+// }
+
+// let sucessCallback = (message) => {
+//     console.log(message)
+// }
+
+// let errorCallback = (message) => {
+//     console.log(message)
+// }
+
+// showFunction(sucessCallback, errorCallback)
+
+// funcção que retorne a soma dos elementos de um array
+// function somaArray(array){
+//     let soma = 0
+//     for(let i = 0; i < array.length; i++){
+//         soma += array[i]
+//     }
+//     return soma
+// }
+
+// console.log(somaArray([1, 2, 3, 4, 5]))
+
+// let ParOuImpar = (valor) => (valor % 2 === 0) ? console.log('Par') : console.log('Impar')
+
+let ParOuImpar = function(valor){
+    if(valor % 2 === 0){
+        return 'Par'
+    }else{
+        return 'Impar'
     }
+    return resultado
 }
 
-console.table(matriz)
+function VerificarArrayPares(arr, callback){
+    let pares = []
+    for(let i=0; i<arr.length; i++ ){
+        let resultado= callback(arr[i])
+        if (resultado =='Par'){
+            pares.push(arr[i])
+        }
+    }
+    return pares
+}
+
+console.log(VerificarArrayPares([1, 2, 3, 4, 5], ParOuImpar))
+

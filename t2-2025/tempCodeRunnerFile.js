@@ -1,2 +1,2 @@
-
-    j = i * (j + 1)
+'0')
+//     let year = date.getFullYear()
