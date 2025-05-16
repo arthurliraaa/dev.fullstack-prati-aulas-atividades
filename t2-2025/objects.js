@@ -26,14 +26,49 @@
 // }
 
 
-function fatorial(n){
-    let calculo = 0
-    if (n === 0){
-        return 1
-    }else{
-        calculo = n * fatorial (n -1)
-        return calculo
+// function fatorial(n){
+//     let calculo = 0
+//     if (n === 0){
+//         return 1
+//     }else{
+//         calculo = n * fatorial (n -1)
+//         return calculo
+//     }
+// }
+
+// console.log(fatorial(5))
+
+// eletronicos
+//     celulares
+//     computadores
+//     notebooks
+// roupas
+
+
+const categorias = [{
+    id: 1,
+    nome: "eletronicos",
+    filhos: [
+        {id: 2, nome: "celulares", filhos: []},
+        {id: 3, nome: "computadores", filhos: [
+            {id: 4, nome: "notebooks", filhos: []}
+        ]},
+    ]
+},
+{
+    id: 5,
+    nome: "Roupas",
+    filhos: []
+}
+]
+// explique o que é a função exibirCategorias
+function exibirCategorias(categorias, nivel = 0) { // categorias é um array de objetos e nivel é um número que indica o nível de profundidade 
+    for (let i = 0; i < categorias.length; i++) { // percorre o array de categorias
+        const categoria = categorias[i]; // pega a categoria atual
+        console.log(" ".repeat(nivel * 2) + categoria.nome); // exibe o nome da categoria com um recuo baseado no nível
+        if (categoria.filhos && categoria.filhos.length > 0) { // verifica se a categoria tem filhos
+            exibirCategorias(categoria.filhos, nivel + 1); // chama a função recursivamente para exibir os filhos, aumentando o nível
+        }
     }
 }
-
-console.log(fatorial(5))
+exibirCategorias(categorias);
