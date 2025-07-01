@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom e BOm</title>
+</head>
+<body>
+    <h1 id="titulo">Titulo Original</h1>
+    <button id="btnAlterar">Alterar Títulio</button>
+
+    <button id="btnAdicionar">Adicionar Item</button>
+    <ul id="lista"></ul>
+
+    <p id="paragrafo" style="color: red; font-weight: bold;">Copa Mundial de Clubes</p>
+
+
+    <script>
+        const p = document.getElementById('paragrafo');
+        const btn = document.getElementById('btnAlterar');
+        const titulo = document.getElementById('titulo');
+            const btnAdicionar = document.getElementById('btnAdicionar');
+        const lista = document.getElementById('lista');
+
+        let = contaador = 1
+
+        btn.addEventListener('click', () => {
+            const item = document.createElement('li');
+            item.textContent = `Item ${contaador}`;
+
+            lista.appendChild(item);
+        })
+    </script>
+</body>
+</html>
